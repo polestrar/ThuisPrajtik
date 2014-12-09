@@ -4,21 +4,37 @@
 package nl.denhaag.thuis.SeleniumTutorials;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
- * @author Polestar
- * @see First exercise to learn the basics of selenium webdriver
+ * @author poolestar
+ * @see First class to learn the basics of selenium webdriver
  *
  */
 public class SeleniumDriverInitializer {
-
+	/*Driver instance for a browser*/
+	private WebDriver driver;
 	
-	public static void main(String[] args) {
-		WebDriver driver = new FirefoxDriver();
-		
-		driver.navigate().to("https://www.google.com");
+	/*Method to get the driver instance*/
+	public WebDriver getDriver() {
+		return driver;
+	}
+	
+	/*Method to set the driver instance*/
 
+	public void setDriver(WebDriver driver) {
+		this.driver = driver;
 	}
 
+	/**
+	 * Method to navigate to given web address.
+	 * @param pageUrl
+	 */
+	
+	public void navigateToPage(String pageUrl){
+		driver.navigate().to(pageUrl);
+		
+		
+	}
+ 
+	
 }
