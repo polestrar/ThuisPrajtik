@@ -1,16 +1,15 @@
-/**
- * 
- */
 package nl.denhaag.thuis.SeleniumTutorials;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
+ * Class for locating and performing operations on elements
  * @author polestar
- * @see First class to learn the basics of selenium webdriver
- *
  */
-public class SeleniumDriverInitializer {
+
+public class FindAndClickElementOnPage {
+	
 	/*Driver instance for a browser*/
 	private WebDriver driver;
 	
@@ -24,17 +23,14 @@ public class SeleniumDriverInitializer {
 	public void setDriver(WebDriver driver) {
 		this.driver = driver;
 	}
-
+	
 	/**
-	 * Method to navigate to given web address.
-	 * @param pageUrl
+	 * Method to navigate to a page and click the element.
+	 * @param pageUrl,elementId
 	 */
-	
-	public void navigateToPage(String pageUrl){
+	public void navigateToPageAndClickById(String pageUrl,String elementId){
 		driver.navigate().to(pageUrl);
-		
-		
+		driver.findElement(By.id(elementId)).click();
 	}
- 
-	
+
 }
