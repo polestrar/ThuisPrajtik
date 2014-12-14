@@ -25,12 +25,32 @@ public class FindAndClickElementOnPage {
 	}
 	
 	/**
-	 * Method to navigate to a page and click the element.
+	 * Method to navigate to a page and click the element using id.
 	 * @param pageUrl,elementId
 	 */
 	public void navigateToPageAndClickById(String pageUrl,String elementId){
 		driver.navigate().to(pageUrl);
 		driver.findElement(By.id(elementId)).click();
 	}
+	
+	/**
+	 * Method to navigate to a page and click the element using class name.
+	 * @param pageUrl,elementClassName
+	 * @return String (Text of the element)
+	 */
+	public String navigateToPageAndClickByClassName(String pageUrl,String elementClassName){
+		driver.navigate().to(pageUrl);
+		 return driver.findElement(By.className(elementClassName)).getText();
+	}
+	
+	/**
+	 * Method to navigate to a page and click the element using id.
+	 * @param pageUrl,elementName
+	 */
+	public void navigateToPageAndClickByName(String pageUrl,String elementName){
+		driver.navigate().to(pageUrl);
+		driver.findElement(By.name(elementName)).click();
+	}
+	
 
 }

@@ -51,6 +51,7 @@ public class FindAndClickElementOnPageTest {
 	 * Then it should be clicked and new page should load
 	 * Test method for {@link nl.denhaag.thuis.SeleniumTutorials.FindAndClickElementOnPage#navigateToPageAndClickById(java.lang.String, java.lang.String)}.
 	 */
+
 	@Test
 	public void testNavigateToPageAndClickById(){
 		
@@ -60,4 +61,34 @@ public class FindAndClickElementOnPageTest {
 		
 	}
 
+	
+	/**
+	 * Given a url for a web page
+	 * When element is searched by class name  on the page
+	 * Then it should be clicked and text of the element should be returned
+	 * Test method for {@link nl.denhaag.thuis.SeleniumTutorials.FindAndClickElementOnPage#navigateToPageAndClickByClassName(java.lang.String, java.lang.String)}.
+	 */
+
+	@Test
+	public void testNavigateToPageAndClickByClassName(){
+		
+	     CharSequence cs = "Google zoeken";
+	     assertTrue("Failed to load the page,find element and click",findAndClick.navigateToPageAndClickByClassName("https://www.google.com", "gbqfba").contains(cs));
+		
+	}
+	
+	/**
+	 * Given a url for a web page
+	 * When element is searched by name on the page
+	 * Then it should be clicked and new page should load
+	 * Test method for {@link nl.denhaag.thuis.SeleniumTutorials.FindAndClickElementOnPage#navigateToPageAndClickByName(java.lang.String, java.lang.String)}.
+	 */
+	
+	@Test
+	public void testNavigateToPageAndClickByName(){
+	     CharSequence cs = "doodle";
+	     findAndClick.navigateToPageAndClickByName("https://www.google.com", "btnI");
+	     assertTrue("Failed to load the page,find element and click",findAndClick.getDriver().getCurrentUrl().contains(cs));
+		
+	}
 }
