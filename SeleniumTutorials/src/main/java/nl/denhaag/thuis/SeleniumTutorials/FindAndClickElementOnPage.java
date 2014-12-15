@@ -52,5 +52,22 @@ public class FindAndClickElementOnPage {
 		driver.findElement(By.name(elementName)).click();
 	}
 	
+	/**
+	 * Method to navigate to a page and click the element using css selector.
+	 * @param pageUrl,selector
+	 */
+	public void navigateToPageAndClickByCssSelector(String pageUrl,String selector){
+		driver.navigate().to(pageUrl);
+		driver.findElement(By.cssSelector(selector)).click();
+	}
+	
+	/**
+	 * Method to navigate to a page and click the element using xpath.
+	 * @param pageUrl,selector
+	 */
+	public void navigateToPageAndClickByXpath(String pageUrl,String xPath){
+		driver.navigate().to(pageUrl);
+		driver.findElement(By.xpath(xPath)).click();
+	}
 
 }

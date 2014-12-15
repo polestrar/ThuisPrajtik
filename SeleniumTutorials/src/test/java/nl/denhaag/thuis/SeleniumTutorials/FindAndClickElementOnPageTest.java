@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -51,7 +52,7 @@ public class FindAndClickElementOnPageTest {
 	 * Then it should be clicked and new page should load
 	 * Test method for {@link nl.denhaag.thuis.SeleniumTutorials.FindAndClickElementOnPage#navigateToPageAndClickById(java.lang.String, java.lang.String)}.
 	 */
-
+	
 	@Test
 	public void testNavigateToPageAndClickById(){
 		
@@ -68,7 +69,7 @@ public class FindAndClickElementOnPageTest {
 	 * Then it should be clicked and text of the element should be returned
 	 * Test method for {@link nl.denhaag.thuis.SeleniumTutorials.FindAndClickElementOnPage#navigateToPageAndClickByClassName(java.lang.String, java.lang.String)}.
 	 */
-
+	
 	@Test
 	public void testNavigateToPageAndClickByClassName(){
 		
@@ -91,4 +92,34 @@ public class FindAndClickElementOnPageTest {
 	     assertTrue("Failed to load the page,find element and click",findAndClick.getDriver().getCurrentUrl().contains(cs));
 		
 	}
+	/**
+	 * Given a url for a web page
+	 * When element is searched by css selector on the page
+	 * Then it should be clicked and new page should load
+	 * Test method for {@link nl.denhaag.thuis.SeleniumTutorials.FindAndClickElementOnPage#navigateToPageAndClickByCssSelector(java.lang.String, java.lang.String)}.
+	 */
+	
+	@Test
+	public void testNavigateToPageAndClickByCssSelector(){
+	     CharSequence cs = "doodle";
+	     findAndClick.navigateToPageAndClickByCssSelector("https://www.google.com", "[id=gbqfbb]");
+	     assertTrue("Failed to load the page,find element and click",findAndClick.getDriver().getCurrentUrl().contains(cs));
+		
+	}
+	
+	/**
+	 * Given a url for a web page
+	 * When element is searched by css selector on the page
+	 * Then it should be clicked and new page should load
+	 * Test method for {@link nl.denhaag.thuis.SeleniumTutorials.FindAndClickElementOnPage#navigateToPageAndClickByXpath(java.lang.String, java.lang.String)}.
+	 */
+	
+	@Test
+	public void testNavigateToPageAndClickByXpath(){
+	     CharSequence cs = "doodle";
+	     findAndClick.navigateToPageAndClickByXpath("https://www.google.com", "//*[@id='gbqfbb']");
+	     assertTrue("Failed to load the page,find element and click",findAndClick.getDriver().getCurrentUrl().contains(cs));
+		
+	}
+	
 }
