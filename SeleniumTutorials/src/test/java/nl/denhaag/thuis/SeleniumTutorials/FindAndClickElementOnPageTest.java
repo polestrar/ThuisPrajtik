@@ -9,14 +9,21 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
+import static junitparams.JUnitParamsRunner.$;
+
 
 /**
  * Unit test for {@link nl.denhaag.thuis.SeleniumTutorials.FindAndClickElementOnPage}
  * @author polestrar
  *
  */
+@RunWith(JUnitParamsRunner.class)
 public class FindAndClickElementOnPageTest {
 	
 	/* Instance of webdriver*/
@@ -45,6 +52,16 @@ public class FindAndClickElementOnPageTest {
 		findAndClick.setDriver(driver);
 		findAndClick.getDriver().quit();
 	}
+	/**
+	 * Method to feed in data for parameterized test case
+	 * @return array of object containing relevant data
+	 */
+	private static final Object[] getPageAndElement() {
+		return  $(
+		$("https://www.google.com/en", "gbqfbb"),
+		$("https://www.google.com/nl", "gbqfbb")
+		);
+		}
 
 	/**
 	 * Given a url for a web page
@@ -54,10 +71,11 @@ public class FindAndClickElementOnPageTest {
 	 */
 	
 	@Test
-	public void testNavigateToPageAndClickById(){
+	@Parameters(method = "getPageAndElement")
+	public void testNavigateToPageAndClickById(String pageUrl,String elementId){
 		
 	     CharSequence cs = "doodle";
-	     findAndClick.navigateToPageAndClickById("https://www.google.com", "gbqfbb");
+	     findAndClick.navigateToPageAndClickById(pageUrl, elementId);
 	     assertTrue("Failed to load the page,find element and click",findAndClick.getDriver().getCurrentUrl().contains(cs));
 		
 	}
